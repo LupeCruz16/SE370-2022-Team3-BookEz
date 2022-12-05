@@ -28,7 +28,7 @@ public class controller extends JPanel{
         cards.add(loginPanel, "Login");
         cards.add(mainPanel, "Homescreen");
         cards.add(photoPanel, "Upload Photos");
-        cards.add(roiPanel, "View ROI Table");
+        cards.add(roiPanel, "View ROI Table");git 
         cards.add(accountPanel, "Create Account");
 
         add(cards);
