@@ -37,7 +37,7 @@ public class controller extends JPanel{
 
     //dispalying homescreen panel to begin 
     private static void createAndDisplay(){
-        JFrame frame = new JFrame("Login");
+        JFrame frame = new JFrame("BookEz");
 
         instance = new controller();
 

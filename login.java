@@ -12,21 +12,14 @@ public class login extends JPanel implements ActionListener{
 
     public login(){
 
-        //setLayout(new BorderLayout());
-
         //panels for locations
-
         JPanel main = new JPanel();
         JPanel title = new JPanel();
         JPanel userName = new JPanel();
         JPanel password = new JPanel();
         JPanel button = new JPanel();
         JPanel space = new JPanel();
-        /* 
-        JPanel topPanel = new JPanel();
-        JPanel midPanel = new JPanel();
-        JPanel bottomPanel = new JPanel();
-        */
+
 
         //creating buttons
         log = new JButton("Login");//creating login button 
@@ -48,7 +41,6 @@ public class login extends JPanel implements ActionListener{
         pass = new JTextField(20);//create text field for password
 
         //adding elements into the panels
-
         title.add(name);
         userName.add(userField);
         userName.add(user);
@@ -57,20 +49,14 @@ public class login extends JPanel implements ActionListener{
         button.add(log);
         button.add(newAccount);
 
+        //Panel layout
         main.setLayout(new BoxLayout(main, BoxLayout.Y_AXIS));
         main.add(title);
         main.add(space);
         main.add(userName);
         main.add(password);
+        main.add(space);
         main.add(button);
-
-        /*
-        topPanel.add(welcome);
-        midPanel.add(userField);
-        midPanel.add(user);
-        midPanel.add(passField);
-        midPanel.add(pass);
-        */
 
         //blocks user from clicking login when username and password fields are empty 
         log.setEnabled(false);
@@ -99,19 +85,8 @@ public class login extends JPanel implements ActionListener{
         user.getDocument().addDocumentListener(docListener);
         pass.getDocument().addDocumentListener(docListener);
 
-        //adding other buttons to panel 
-        /* 
-        bottomPanel.add(log); 
-        bottomPanel.add(newAccount);
-        */
-
         //ordering displayes of panels
         add(main);
-        /*
-        add(topPanel, BorderLayout.NORTH);
-        add(midPanel, BorderLayout.CENTER);
-        add(bottomPanel, BorderLayout.SOUTH);
-        */
 
         //displaying panel
         setVisible(true);
