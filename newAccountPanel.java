@@ -7,16 +7,21 @@ import javax.swing.event.DocumentListener;
 public class newAccountPanel extends JPanel implements ActionListener{
     
     private JButton back, signUp;
-    private JLabel createMessage, userField, emailField, passField, passConfirm;
+    private JLabel createMessage, blank1, blank2, userField, emailField, passField, passConfirm;
     private JTextField user, email, pass, passC;
 
     public newAccountPanel(){
-        setLayout(new BorderLayout());
 
         //panels for each element
-        JPanel topPanel = new JPanel();
-        JPanel middlePanel = new JPanel();        
-        JPanel bottomPanel = new JPanel();
+        JPanel main = new JPanel();
+        JPanel title = new JPanel();
+        JPanel userName = new JPanel();
+        JPanel emailAcc = new JPanel();
+        JPanel passWord = new JPanel();
+        JPanel confirm = new JPanel();
+        JPanel button = new JPanel();
+        JPanel space1 = new JPanel();
+        JPanel space2 = new JPanel();
 
         //creating buttons 
         back = new JButton("<-");//creating back button 
@@ -35,6 +40,8 @@ public class newAccountPanel extends JPanel implements ActionListener{
         passField.setFont(new Font("Arial", Font.PLAIN, 15));
         passConfirm = new JLabel("Confirm Password: ");
         passConfirm.setFont(new Font("Arial", Font.PLAIN, 15));
+        blank1 = new JLabel("");
+        blank2 = new JLabel("");
 
         //creating textfields 
         user = new JTextField(20);
@@ -81,6 +88,42 @@ public class newAccountPanel extends JPanel implements ActionListener{
         passC.getDocument().addDocumentListener(docListener);
 
         //creating grid layout for middle panels format
+
+        title.add(createMessage);
+        space1.add(blank1);
+        space2.add(blank2);
+
+        userName.setLayout(new GridLayout());
+        userName.add(userField);
+        userName.add(user);
+
+        emailAcc.setLayout(new GridLayout());
+        emailAcc.add(emailField);
+        emailAcc.add(email);
+
+        passWord.setLayout(new GridLayout());
+        passWord.add(passField);
+        passWord.add(pass);
+
+        confirm.setLayout(new GridLayout());
+        confirm.add(passConfirm);
+        confirm.add(passC);
+
+       //button.setLayout(new GridLayout());
+        button.add(back);
+        button.add(signUp);
+
+        main.setLayout(new BoxLayout(main, BoxLayout.Y_AXIS));
+        main.add(title);
+        main.add(space1);
+        main.add(userName);
+        main.add(emailAcc);
+        main.add(passWord);
+        main.add(confirm);
+        main.add(space2);
+        main.add(button);
+
+        /* 
         middlePanel.setLayout(new GridLayout(4, 2, 0, 200));
 
         //adding elements into each panel
@@ -97,11 +140,16 @@ public class newAccountPanel extends JPanel implements ActionListener{
 
         bottomPanel.add(back); 
         bottomPanel.add(signUp);
+        */
 
         //ordering displayes of panels
+
+        add(main);
+        /* 
         add(topPanel, BorderLayout.NORTH);
         add(middlePanel, BorderLayout.CENTER);
         add(bottomPanel, BorderLayout.SOUTH);
+        */
 
         //displaying panel
         setVisible(true);
