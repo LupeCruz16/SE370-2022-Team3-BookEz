@@ -88,7 +88,6 @@ public class newAccountPanel extends JPanel implements ActionListener{
         passC.getDocument().addDocumentListener(docListener);
 
         //creating grid layout for middle panels format
-
         title.add(createMessage);
         space1.add(blank1);
         space2.add(blank2);
@@ -109,7 +108,6 @@ public class newAccountPanel extends JPanel implements ActionListener{
         confirm.add(passConfirm);
         confirm.add(passC);
 
-       //button.setLayout(new GridLayout());
         button.add(back);
         button.add(signUp);
 
@@ -123,33 +121,8 @@ public class newAccountPanel extends JPanel implements ActionListener{
         main.add(space2);
         main.add(button);
 
-        /* 
-        middlePanel.setLayout(new GridLayout(4, 2, 0, 200));
-
-        //adding elements into each panel
-        topPanel.add(createMessage);
-
-        middlePanel.add(userField);
-        middlePanel.add(user);
-        middlePanel.add(emailField);
-        middlePanel.add(email);
-        middlePanel.add(passField);
-        middlePanel.add(pass);
-        middlePanel.add(passConfirm);
-        middlePanel.add(passC);
-
-        bottomPanel.add(back); 
-        bottomPanel.add(signUp);
-        */
-
-        //ordering displayes of panels
-
+        //ordering display of panels
         add(main);
-        /* 
-        add(topPanel, BorderLayout.NORTH);
-        add(middlePanel, BorderLayout.CENTER);
-        add(bottomPanel, BorderLayout.SOUTH);
-        */
 
         //displaying panel
         setVisible(true);

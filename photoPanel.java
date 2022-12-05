@@ -7,19 +7,19 @@ import java.lang.reflect.*;
 public class photoPanel extends JPanel implements ActionListener{
     
     private JButton back, upload;
-    private JLabel prompt;
+    private JLabel name,prompt, blank;
     static JTextField fileList;
 
     public photoPanel(){
 
-        setLayout(new BorderLayout());
-
         //creating JPanels  
-        JPanel topPanel = new JPanel();
-        JPanel middlePanel = new JPanel();
-        JPanel bottomPanel = new JPanel();
-        JPanel leftPanel = new JPanel();
-
+        JPanel main = new JPanel();
+        JPanel space = new JPanel();
+        JPanel title = new JPanel();
+        JPanel message = new JPanel();
+        JPanel file = new JPanel();
+        JPanel button = new JPanel();
+ 
         //creating JButtons 
         back = new JButton("<-");//create back button 
         back.addActionListener(this);//monitor if clicked 
@@ -27,24 +27,34 @@ public class photoPanel extends JPanel implements ActionListener{
         upload.addActionListener(this);
 
         //creating JLabels
+        name = new JLabel("Upload Files");
+        name.setFont(new Font("Arial", Font.PLAIN, 25));//resizing text within label
+        blank = new JLabel("");
         prompt = new JLabel("Ensure files are in a PDF format");
-        prompt.setFont(new Font("Arial", Font.PLAIN, 20));//resizing text within label
+        prompt.setFont(new Font("Arial", Font.PLAIN, 15));//resizing text within label
         
         //creating text field
         fileList = new JTextField(40);
         fileList.setBounds(80, 20, 250, 20);
 
         //adding elements to panels 
-        topPanel.add(prompt);
-        leftPanel.add(upload);
-        middlePanel.add(fileList);
-        bottomPanel.add(back); 
+
+        title.add(name);
+        space.add(blank);
+        message.add(prompt);
+        file.add(upload);
+        file.add(fileList);
+        button.add(back);
+
+        main.setLayout(new BoxLayout(main, BoxLayout.Y_AXIS));
+        main.add(title);
+        main.add(space);
+        main.add(message);
+        main.add(file);
+        main.add(button);
 
         //ordering panels in borderlayout
-        add(topPanel, BorderLayout.NORTH);
-        add(leftPanel, BorderLayout.WEST);
-        add(middlePanel, BorderLayout.CENTER);
-        add(bottomPanel, BorderLayout.SOUTH);
+        add(main);
 
         //displaying panel
         setVisible(true);
