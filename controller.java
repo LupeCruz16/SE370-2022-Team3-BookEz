@@ -42,7 +42,7 @@ public class controller extends JPanel{
         instance = new controller();
 
         frame.getContentPane().add(instance);
-        frame.setSize(800, 800);
+        frame.setSize(620, 400);
         frame.setVisible(true);
     }
 
