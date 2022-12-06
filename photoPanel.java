@@ -12,9 +12,7 @@ public class photoPanel extends JPanel implements ActionListener{
     //private JScrollPane scroll;
 
     public photoPanel(){
-
-        setLayout(new BorderLayout());
-
+        
         //creating JPanels  
         JPanel main = new JPanel();
         JPanel space = new JPanel();
@@ -45,9 +43,11 @@ public class photoPanel extends JPanel implements ActionListener{
 
 
         //adding elements to panels 
+        //title.setLayout(new BoxLayout(title, BoxLayout.Y_AXIS));
         title.add(name);
         space.add(blank);
         message.add(prompt);
+
         file.add(upload);
         file.add(fileList);
         button.add(back);
