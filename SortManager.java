@@ -29,7 +29,7 @@ public class SortManager{
 
     static void insertionSort(Vector<String> v, boolean type){
 
-        String total, shipCost, tax, profitC, soldPriceTemp, shipPaidTemp;
+        String total, shipCost, tax, profitC;
         double key, elem;
     
         //ittterate through entire vector starting at 1
@@ -40,8 +40,8 @@ public class SortManager{
             //obtain necessary info for profit calculation
             total = convertAndFind(v.get(i), "$", next, 0);
             shipCost = convertAndFind(v.get(i), "Cost: ", next, 6);
-            soldPriceTemp = convertAndFind(v.get(i), "$", next, 0);
-            shipPaidTemp = convertAndFind(v.get(i), "$", next, 0);
+            convertAndFind(v.get(i), "$", next, 0);
+            convertAndFind(v.get(i), "$", next, 0);
             tax = convertAndFind(v.get(i), "$", next, 0);
 
             //calculating profit from vectors i position
@@ -54,8 +54,8 @@ public class SortManager{
             //obtain necessary info for profit calculation
             total = convertAndFind(v.get(j), "$", next, 0);
             shipCost = convertAndFind(v.get(j), "Cost: ", next, 6);
-            soldPriceTemp = convertAndFind(v.get(j), "$", next, 0);
-            shipPaidTemp = convertAndFind(v.get(j), "$", next, 0);
+            convertAndFind(v.get(j), "$", next, 0);
+            convertAndFind(v.get(j), "$", next, 0);
             tax = convertAndFind(v.get(j), "$", next, 0);
 
             //calculating profit from vectors i position
