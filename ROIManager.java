@@ -10,6 +10,8 @@ import org.apache.pdfbox.text.PDFTextStripper;
 import java.io.PrintWriter;
 import java.util.Vector;
 
+
+
 public class ROIManager{
 
     public static File output;//output.text file collects all information from PDFs
@@ -121,10 +123,10 @@ public class ROIManager{
         double ta = Double.parseDouble(tax.substring(1));
         
         profit = t - sC - ta;//calculating profit 
-        
         profit = Math.round(profit * 100) / 100.0;//rounding off for set precision 
-        String profitString = "$%. 2f" + profit + "";//changing to string and adding $ for formatting
 
+        String profitString = "$" + profit + "";//changing to string and adding $ for formatting
+        
         return profitString;//returning profit obtained 
 
     }//end of profit calculation
