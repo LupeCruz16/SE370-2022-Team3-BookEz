@@ -7,16 +7,19 @@ import javax.swing.*;
 public class main extends JPanel implements ActionListener{
     
     private JButton photo, roi, exit;
-    private JLabel appName;
+    private JLabel appName, blank;
 
     public main(){
 
-        setLayout(new BorderLayout());//creating border layout
+        //setLayout(new BorderLayout());//creating border layout
 
         //Creating Panels
-        JPanel topPanel = new JPanel();
-        JPanel middlePanel = new JPanel();
-        JPanel bottomPanel = new JPanel();
+        JPanel main = new JPanel();
+        JPanel space = new JPanel();
+        JPanel space2 = new JPanel();
+        JPanel title = new JPanel();
+        JPanel middle = new JPanel();
+        JPanel button = new JPanel();
 
         //Creating buttoms
         photo = new JButton("Upload Images");//creating uploading photos button 
@@ -29,19 +32,29 @@ public class main extends JPanel implements ActionListener{
         //Creating Lables
         appName = new JLabel("Welcome to BookEz");
         appName.setFont(new Font("Arial", Font.BOLD, 40));//resizing text within label
-
+        blank = new JLabel("");
         //Adding elements to panels 
-        topPanel.add(appName);
 
-        middlePanel.add(photo);
-        middlePanel.add(roi); 
+        title.add(appName);
 
-        bottomPanel.add(exit);
+        middle.setLayout(new GridLayout());
+        middle.add(photo);
+        middle.add(roi); 
+
+        button.add(exit);
+        space.add(blank);
+        space2.add(blank);
+
+        main.setLayout(new BoxLayout(main, BoxLayout.Y_AXIS));
+        main.add(title);
+        main.add(space);
+        main.add(middle);
+        main.add(space2);
+        main.add(button);
 
         //Setting panels within the borderlayout 
-        add(topPanel, BorderLayout.NORTH);
-        add(middlePanel, BorderLayout.CENTER);
-        add(bottomPanel, BorderLayout.SOUTH);
+        add(main);
+        
 
         //displaying panel
         setVisible(true);

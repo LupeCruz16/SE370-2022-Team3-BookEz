@@ -123,7 +123,7 @@ public class ROIManager{
         profit = t - sC - ta;//calculating profit 
         
         profit = Math.round(profit * 100) / 100.0;//rounding off for set precision 
-        String profitString = "$" + profit + "";//changing to string and adding $ for formatting
+        String profitString = "$%. 2f" + profit + "";//changing to string and adding $ for formatting
 
         return profitString;//returning profit obtained 
 
