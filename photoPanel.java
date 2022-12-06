@@ -8,9 +8,12 @@ public class photoPanel extends JPanel implements ActionListener{
     
     private JButton back, upload;
     private JLabel name,prompt, blank;
-    static JTextField fileList;
+    static JTextArea fileList;
+    //private JScrollPane scroll;
 
     public photoPanel(){
+
+        setLayout(new BorderLayout());
 
         //creating JPanels  
         JPanel main = new JPanel();
@@ -19,26 +22,29 @@ public class photoPanel extends JPanel implements ActionListener{
         JPanel message = new JPanel();
         JPanel file = new JPanel();
         JPanel button = new JPanel();
- 
+
         //creating JButtons 
         back = new JButton("<-");//create back button 
         back.addActionListener(this);//monitor if clicked 
         upload = new JButton("Select Files");
         upload.addActionListener(this);
 
-        //creating JLabels
-        name = new JLabel("Upload Files");
-        name.setFont(new Font("Arial", Font.PLAIN, 25));//resizing text within label
-        blank = new JLabel("");
-        prompt = new JLabel("Ensure files are in a PDF format");
-        prompt.setFont(new Font("Arial", Font.PLAIN, 15));//resizing text within label
-        
-        //creating text field
-        fileList = new JTextField(40);
-        fileList.setBounds(80, 20, 250, 20);
+       //creating JLabels
+       name = new JLabel("Upload Files");
+       name.setFont(new Font("Arial", Font.PLAIN, 25));//resizing text within label
+       blank = new JLabel("");
+       prompt = new JLabel("Ensure files are in a PDF format");
+       prompt.setFont(new Font("Arial", Font.PLAIN, 15));//resizing text within label
+
+        //creating text area 
+        fileList = new JTextArea();
+        fileList.setLineWrap(true);
+        fileList.setWrapStyleWord(true);
+        //scroll = new JScrollPane(fileList);
+        fileList.setBounds(80, 20, 400, 200);
+
 
         //adding elements to panels 
-
         title.add(name);
         space.add(blank);
         message.add(prompt);
@@ -53,7 +59,7 @@ public class photoPanel extends JPanel implements ActionListener{
         main.add(file);
         main.add(button);
 
-        //ordering panels in borderlayout
+        //adding for display
         add(main);
 
         //displaying panel

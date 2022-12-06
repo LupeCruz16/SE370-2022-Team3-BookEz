@@ -17,6 +17,13 @@
         "/Users/guadalupecruz/Desktop/jar_files/SparseBitSet-1.2.jar",
         "/Users/guadalupecruz/Desktop/jar_files/xmlbeans-5.1.1.jar",
         "/Users/guadalupecruz/Downloads/log4j-core.jar",
-        "/Users/guadalupecruz/Downloads/log4j-core-2.17.2.0001L.jar"
+        "/Users/guadalupecruz/Downloads/log4j-core-2.17.2.0001L.jar",
+        "/Users/kennyly/Desktop/ApacheJarFiles/fontbox-2.0.1.jar",
+        "/Users/kennyly/Desktop/ApacheJarFiles/pdfbox-2.0.1.jar",
+        "/Users/kennyly/Desktop/ApacheJarFiles/pdfbox-app-2.0.1.jar",
+        "/Users/kennyly/Desktop/ApacheJarFiles/pdfbox-tools-2.0.1.jar",
+        "/Users/kennyly/Desktop/ApacheJarFiles/preflight-2.0.1.jar",
+        "/Users/kennyly/Desktop/ApacheJarFiles/preflight-app-2.0.1.jar",
+        "/Users/kennyly/Desktop/ApacheJarFiles/xmpbox-2.0.1.jar"
     ]
 }

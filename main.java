@@ -44,9 +44,10 @@ public class main extends JPanel implements ActionListener{
         //displaying panel
         setVisible(true);
         setSize(500, 500);
-    }
+
+    }//end of main class
  
-    //if button is clocked, move to a different panel
+    //if button is clicked preform an action
     public void actionPerformed(ActionEvent e){
         if(e.getSource() == photo){//if user wants to upload photos, move to photo panel
             controller.getInstance().changeCard("Upload Photos");
@@ -58,5 +59,7 @@ public class main extends JPanel implements ActionListener{
             controller.getInstance().changeCard("Login");
             ROIManager.output.delete();
         }
-    } 
+
+    }//end of action preformed 
+
 }//end of class 
