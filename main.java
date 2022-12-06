@@ -1,5 +1,7 @@
 import java.awt.*;
 import java.awt.event.*;
+import java.io.File;
+
 import javax.swing.*;
 
 public class main extends JPanel implements ActionListener{
@@ -26,7 +28,7 @@ public class main extends JPanel implements ActionListener{
 
         //Creating Lables
         appName = new JLabel("Welcome to BookEz");
-        appName.setFont(new Font("Arial", Font.PLAIN, 20));//resizing text within label
+        appName.setFont(new Font("Arial", Font.BOLD, 40));//resizing text within label
 
         //Adding elements to panels 
         topPanel.add(appName);
@@ -57,7 +59,11 @@ public class main extends JPanel implements ActionListener{
         }
         else if(e.getSource() == exit){
             controller.getInstance().changeCard("Login");
-            ROIManager.output.delete();
+            File f = new File("output.text");
+
+            if(f.exists()){
+                ROIManager.output.delete();
+            }
         }
 
     }//end of action preformed 
