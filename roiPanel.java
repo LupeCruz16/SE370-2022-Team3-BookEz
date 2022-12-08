@@ -10,7 +10,7 @@ import java.io.File;
 public class roiPanel extends JPanel implements ActionListener{
     
     private JButton back, display, highProfitSort, lowProfitSort;
-    private JTextArea roiTable;
+    static JTextArea roiTable;
     private JLabel sortMess;
 
     Color ezBlue= new Color( 80,145,230);

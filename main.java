@@ -104,7 +104,10 @@ public class main extends JPanel implements ActionListener{
 
             if(f.exists()){
                 ROIManager.output.delete();
+                roiPanel.roiTable.setText("Empty");
+                ROIManager.v.clear();//clearing the vector 
             }
+
         }
 
     }//end of action preformed 
