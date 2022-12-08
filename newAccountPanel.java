@@ -7,7 +7,7 @@ import javax.swing.event.DocumentListener;
 public class newAccountPanel extends JPanel implements ActionListener{
     
     private JButton back, signUp;
-    private JLabel createMessage, blank1, blank, userField, emailField, passField, passConfirm;
+    private JLabel createMessage, blank, userField, emailField, passField, passConfirm;
     private JTextField user, email, pass, passC;
 
     public newAccountPanel(){
@@ -55,7 +55,6 @@ public class newAccountPanel extends JPanel implements ActionListener{
         passConfirm.setFont(new Font("Arial", Font.PLAIN, 15));
         passConfirm.setForeground(ezBlue);
 
-        blank1 = new JLabel(" ");
         blank = new JLabel(" ");
 
         //creating textfields 
