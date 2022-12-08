@@ -43,13 +43,10 @@ public class roiPanel extends JPanel implements ActionListener{
 
         //adding element into panels
         topPanel.add(display);
-
         leftPanel.add(sortMess);
         leftPanel.add(highProfitSort);
         leftPanel.add(lowProfitSort);
-
-        middlePanel.add(roiTable); 
-
+        middlePanel.add(roiTable);
         bottomPanel.add(back); 
 
         //formatting panels 
