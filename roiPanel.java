@@ -5,6 +5,7 @@ import javax.swing.*;
 import java.io.FileReader;
 import java.lang.reflect.Method;
 import java.io.BufferedReader;
+import java.io.File;
 
 public class roiPanel extends JPanel implements ActionListener{
     
@@ -46,6 +47,7 @@ public class roiPanel extends JPanel implements ActionListener{
 
         //creating JTextAreas
         roiTable = new JTextArea("Empty");
+        roiTable.setEditable(false);
 
         //creating JLables
         sortMess = new JLabel("Sort By: ");
@@ -70,46 +72,49 @@ public class roiPanel extends JPanel implements ActionListener{
         setSize(500, 500);
     }
 
-    //if button is clocked, move to a different panel
+    //if button is clicked preform an action
     public void actionPerformed(ActionEvent e){
-        //checking if display or a sotring button was clicked 
         if(e.getSource() == display || e.getSource() == highProfitSort || e.getSource() == lowProfitSort){
-            //if sort was clicked 
-            if(e.getSource() == highProfitSort || e.getSource() == lowProfitSort){
-                try{
-                    Class<?> c = SortManager.class;//create instance of class 
-                    Object o = c.getDeclaredConstructor().newInstance();
 
-                    //utilize method to obtain function needed to be used
-                    Method m = SortManager.class.getDeclaredMethod("profitSort", new Class[]{boolean.class});
-                    m.setAccessible(true);
+                File f = new File("output.txt");
+                if(f.exists()){//verifying that output text file has been created 
 
-                    //based on source, sort and print to text file
-                    if(e.getSource() == highProfitSort){
-                        m.invoke(o, true);
-                    } else if(e.getSource() == lowProfitSort){
-                        m.invoke(o, false);
-                    }
-                    
-                }catch(Exception ex){//catching exception thrown for invalid document inputs
-                    System.out.println("Exception thrown: " + ex);//printing error message 
-                } 
+                    if(e.getSource() == highProfitSort || e.getSource() == lowProfitSort){
+                        
+                        try{
+                            Class<?> c = SortManager.class;
+                            Object o = c.getDeclaredConstructor().newInstance();
 
-            } 
-            //default to display roi table
-            try
-                {  
-                    FileReader reader = new FileReader(ROIManager.output.getPath());
-                    BufferedReader br = new BufferedReader(reader);
-                    roiTable.read( br, null );
-                    br.close();
-                    roiTable.requestFocus();
-                } catch(Exception e2) { 
-                    System.out.println(e2); 
-                }
-        }
+                            Method m = SortManager.class.getDeclaredMethod("profitSort", new Class[]{boolean.class});
+                            m.setAccessible(true);
+
+                            if(e.getSource() == highProfitSort){
+                                m.invoke(o, true);
+                            } else if(e.getSource() == lowProfitSort){
+                                m.invoke(o, false);
+                            }
+                            
+                        }catch(Exception ex){//catching exception thrown for invalid document inputs
+                            System.out.println("Exception thrown: " + ex);//printing error message 
+                        } 
+                    } 
+                    //default to display roi table
+                    try
+                        {  
+                            FileReader reader = new FileReader(ROIManager.output.getPath());
+                            BufferedReader br = new BufferedReader(reader);
+                            roiTable.read( br, null );
+                            br.close();
+                            roiTable.requestFocus();
+                        } catch(Exception e2) { 
+                            System.out.println(e2); 
+                        }
+            } else {//output.text has not been created yet 
+                JOptionPane.showMessageDialog(null, "Please upload files first");
+            }
+        } 
         else if(e.getSource() == back){
             controller.getInstance().changeCard("Homescreen");
         }
-    }
+    }//end of action preformed
 }

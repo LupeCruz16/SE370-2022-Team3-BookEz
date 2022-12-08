@@ -47,8 +47,8 @@ public class photoPanel extends JPanel implements ActionListener{
         fileList = new JTextArea();
         fileList.setLineWrap(true);
         fileList.setWrapStyleWord(true);
-        //scroll = new JScrollPane(fileList);
         fileList.setBounds(80, 20, 400, 200);
+        fileList.setEditable(false);
 
 
         //adding elements to panels 
