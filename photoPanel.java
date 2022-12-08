@@ -13,9 +13,12 @@ public class photoPanel extends JPanel implements ActionListener{
 
     public photoPanel(){
         
+        Color ezBlue= new Color( 80,145,230);
+
         //creating JPanels  
         JPanel main = new JPanel();
         JPanel space = new JPanel();
+        JPanel space2 = new JPanel();
         JPanel title = new JPanel();
         JPanel message = new JPanel();
         JPanel file = new JPanel();
@@ -24,15 +27,21 @@ public class photoPanel extends JPanel implements ActionListener{
         //creating JButtons 
         back = new JButton("<-");//create back button 
         back.addActionListener(this);//monitor if clicked 
+        back.setForeground(ezBlue);
+
         upload = new JButton("Select Files");
         upload.addActionListener(this);
+        upload.setForeground(ezBlue);
 
        //creating JLabels
        name = new JLabel("Upload Files");
-       name.setFont(new Font("Arial", Font.PLAIN, 25));//resizing text within label
+       name.setFont(new Font("Arial", Font.BOLD, 35));//resizing text within label
+       name.setForeground(Color.white);
+
        blank = new JLabel("");
        prompt = new JLabel("Ensure files are in a PDF format");
        prompt.setFont(new Font("Arial", Font.PLAIN, 15));//resizing text within label
+       prompt.setForeground(Color.white);
 
         //creating text area 
         fileList = new JTextArea();
@@ -45,8 +54,20 @@ public class photoPanel extends JPanel implements ActionListener{
         //adding elements to panels 
         //title.setLayout(new BoxLayout(title, BoxLayout.Y_AXIS));
         title.add(name);
+        title.setPreferredSize(new Dimension(820, 40));
+        title.setBackground(ezBlue);
+
         space.add(blank);
+        space.setPreferredSize(new Dimension(820, 10));
+        space.setBackground(ezBlue);
+
         message.add(prompt);
+        message.setPreferredSize(new Dimension(820, 30));
+        message.setBackground(ezBlue);
+
+        space2.add(blank);
+        space2.setPreferredSize(new Dimension(820, 10));
+        space2.setBackground(ezBlue);
 
         file.add(upload);
         file.add(fileList);
@@ -56,6 +77,7 @@ public class photoPanel extends JPanel implements ActionListener{
         main.add(title);
         main.add(space);
         main.add(message);
+        main.add(space2);
         main.add(file);
         main.add(button);
 

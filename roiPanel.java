@@ -12,6 +12,8 @@ public class roiPanel extends JPanel implements ActionListener{
     private JTextArea roiTable;
     private JLabel sortMess;
 
+    Color ezBlue= new Color( 80,145,230);
+
     public roiPanel(){
         
         setLayout(new BorderLayout());
@@ -28,18 +30,26 @@ public class roiPanel extends JPanel implements ActionListener{
         //creating buttons 
         back = new JButton("<-");//creating back button 
         back.addActionListener(this);//monitor if clicked
+        back.setForeground(ezBlue);
+
         display = new JButton("Display ROI Table"); 
         display.addActionListener(this);
+        display.setForeground(ezBlue);
+
         highProfitSort = new JButton("Highest Profit");
         highProfitSort.addActionListener(this);
+        highProfitSort.setForeground(ezBlue);
+
         lowProfitSort = new JButton("Lowest Profit");
         lowProfitSort.addActionListener(this);
+        lowProfitSort.setForeground(ezBlue);
 
         //creating JTextAreas
         roiTable = new JTextArea("Empty");
 
         //creating JLables
         sortMess = new JLabel("Sort By: ");
+        sortMess.setForeground(ezBlue);
 
         //adding element into panels
         topPanel.add(display);

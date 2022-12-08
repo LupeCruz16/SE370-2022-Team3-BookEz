@@ -7,41 +7,56 @@ import javax.swing.event.DocumentListener;
 public class newAccountPanel extends JPanel implements ActionListener{
     
     private JButton back, signUp;
-    private JLabel createMessage, blank1, blank2, userField, emailField, passField, passConfirm;
+    private JLabel createMessage, blank1, blank, userField, emailField, passField, passConfirm;
     private JTextField user, email, pass, passC;
 
     public newAccountPanel(){
 
+        Color ezBlue= new Color( 80,145,230);
+
         //panels for each element
         JPanel main = new JPanel();
+        JPanel create = new JPanel();
         JPanel title = new JPanel();
         JPanel userName = new JPanel();
         JPanel emailAcc = new JPanel();
         JPanel passWord = new JPanel();
         JPanel confirm = new JPanel();
         JPanel button = new JPanel();
-        JPanel space1 = new JPanel();
-        JPanel space2 = new JPanel();
+        JPanel space = new JPanel();
 
         //creating buttons 
         back = new JButton("<-");//creating back button 
         back.addActionListener(this);//monitor if clicked
+        back.setForeground(ezBlue);
+
         signUp = new JButton("Sign Up");//creating sign up button
         signUp.addActionListener(this);//moitor if clicked
+        signUp.setForeground(ezBlue);
 
         //creating labels 
         createMessage = new JLabel("Create Account");
-        createMessage.setFont(new Font("Arial", Font.PLAIN, 20));//resizing text within label
+        createMessage.setFont(new Font("Arial", Font.BOLD, 40));//resizing text within label
+        createMessage.setForeground(Color.white);
+
         userField = new JLabel("Username: ");
         userField.setFont(new Font("Arial", Font.PLAIN, 15));
+        userField.setForeground(ezBlue);
+
         emailField = new JLabel("Email: ");
         emailField.setFont(new Font("Arial", Font.PLAIN, 15));
+        emailField.setForeground(ezBlue);
+
         passField = new JLabel("Password: ");
         passField.setFont(new Font("Arial", Font.PLAIN, 15));
+        passField.setForeground(ezBlue);
+
         passConfirm = new JLabel("Confirm Password: ");
         passConfirm.setFont(new Font("Arial", Font.PLAIN, 15));
-        blank1 = new JLabel("");
-        blank2 = new JLabel("");
+        passConfirm.setForeground(ezBlue);
+
+        blank1 = new JLabel(" ");
+        blank = new JLabel(" ");
 
         //creating textfields 
         user = new JTextField(20);
@@ -89,8 +104,10 @@ public class newAccountPanel extends JPanel implements ActionListener{
 
         //creating grid layout for middle panels format
         title.add(createMessage);
-        space1.add(blank1);
-        space2.add(blank2);
+        title.setPreferredSize(new Dimension(820, 80));
+        title.setBackground(ezBlue);
+
+        space.add(blank);
 
         userName.setLayout(new GridLayout());
         userName.add(userField);
@@ -111,17 +128,20 @@ public class newAccountPanel extends JPanel implements ActionListener{
         button.add(back);
         button.add(signUp);
 
+        create.setLayout(new BoxLayout(create, BoxLayout.Y_AXIS));
+        create.add(title);
+
         main.setLayout(new BoxLayout(main, BoxLayout.Y_AXIS));
-        main.add(title);
-        main.add(space1);
         main.add(userName);
         main.add(emailAcc);
         main.add(passWord);
         main.add(confirm);
-        main.add(space2);
+        main.add(space);
         main.add(button);
 
         //ordering display of panels
+        //add(space1);
+        add(title);
         add(main);
 
         //displaying panel
